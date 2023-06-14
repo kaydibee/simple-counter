@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tally Counter</title>
+  <style>
+    body {
+      font-family: monospace;
+    }
+    .counter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .counter span {
+      margin: 0 10px;
+    }
+    .counter button {
+      font-family: monospace;
+      padding: 0;
+      font-size: 16px;
+      margin: 0 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: grey;
+    }
+    .reset-button {
+      font-family: monospace;
+      padding: 0;
+      font-size: 16px;
+      margin: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter">
+    <button id="decrement">&#9660;</button>
+    <span id="count">0</span>
+    <button id="increment">&#9650;</button>
+  </div>
+  <div class="counter">
+    <button id="reset" class="reset-button">Reset</button>
+  </div>
+
+  <script>
+    const countElement = document.getElementById("count");
+    const incrementButton = document.getElementById("increment");
+    const decrementButton = document.getElementById("decrement");
+    const resetButton = document.getElementById("reset");
+
+    let count = 0;
+
+    function updateCount(value) {
+      count += value;
+      countElement.textContent = count;
+    }
+
+    incrementButton.addEventListener("click", function() {
+      updateCount(1);
+    });
+
+    decrementButton.addEventListener("click", function() {
+      updateCount(-1);
+    });
+
+    resetButton.addEventListener("click", function() {
+      count = 0;
+      countElement.textContent = count;
+    });
+  </script>
+</body>
+</html>
